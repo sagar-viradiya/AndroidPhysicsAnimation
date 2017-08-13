@@ -40,6 +40,10 @@ captures/
 .idea/dictionaries
 .idea/libraries
 
+# Android Studio
+*.iml
+.idea
+
 # Keystore files
 *.jks
 
