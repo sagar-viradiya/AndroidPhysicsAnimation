@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/android_bot"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
+        android:layout_width="@dimen/android_bot_size"
+        android:layout_height="@dimen/android_bot_size"
         android:layout_gravity="center"
         app:srcCompat="@drawable/ic_android"/>
 
