@@ -1,4 +1,4 @@
-# AndroidPhysicsAnimation
+# Android physics based animation
 Sample app demonstrating android physics based animation. Covers Spring animation, Fling animation and Chain spring animation.
 
 ## Spring Animation
