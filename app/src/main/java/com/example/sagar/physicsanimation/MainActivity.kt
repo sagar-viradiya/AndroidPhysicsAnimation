@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.PersistableBundle
 import android.support.design.widget.NavigationView
+import android.support.v4.app.Fragment
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.support.v7.widget.Toolbar
@@ -34,8 +35,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             return
         }
 
-        supportFragmentManager.beginTransaction().add(R.id.fragment_container,
-                FlingAnimationFragment.newInstance()).commit()
+        supportFragmentManager.inTransaction {
+            add(R.id.fragment_container, FlingAnimationFragment.newInstance())
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle?, outPersistentState: PersistableBundle?) {
@@ -48,37 +50,20 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(item.itemId) {
 
             R.id.nav_item_fling -> {
-
-                if(!item.isChecked) {
-                    item.isChecked = true
-                    SELECTED_FRAGMENT_INDEX = 0
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
-                            FlingAnimationFragment.newInstance()).commit()
-                }
+                replaceFragment(item, FlingAnimationFragment.newInstance(), 0)
                 drawer_layout.closeDrawer(GravityCompat.START)
                 return true
             }
 
             R.id.nav_item_spring -> {
-
-                if(!item.isChecked) {
-                    item.isChecked = true
-                    SELECTED_FRAGMENT_INDEX = 1
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
-                            SpringAnimationFragment.newInstance()).commit()
-                }
+                replaceFragment(item, SpringAnimationFragment.newInstance(), 1)
                 drawer_layout.closeDrawer(GravityCompat.START)
                 return true
 
             }
 
             R.id.nav_item_chain -> {
-                if(!item.isChecked) {
-                    item.isChecked = true
-                    SELECTED_FRAGMENT_INDEX = 2
-                    supportFragmentManager.beginTransaction().replace(R.id.fragment_container,
-                            ChainAnimationFragment.newInstance()).commit()
-                }
+                replaceFragment(item, ChainAnimationFragment.newInstance(), 2)
                 drawer_layout.closeDrawer(GravityCompat.START)
                 return true
 
@@ -89,6 +74,18 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
     }
 
+    private fun replaceFragment(item: MenuItem, fragment: Fragment, selectedIndex: Int) {
+
+        if(!item.isChecked) {
+            item.isChecked = true
+            SELECTED_FRAGMENT_INDEX = selectedIndex
+            supportFragmentManager.inTransaction {
+                replace(R.id.fragment_container, fragment)
+            }
+        }
+
+    }
+
     private fun setupToolbar() {
 
         toolbar.title = ""
@@ -96,7 +93,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     }
 
-    fun setupNavigationDrawer(toolbar: Toolbar) {
+    private fun setupNavigationDrawer(toolbar: Toolbar) {
         val actionBarDrawerToggle = object : ActionBarDrawerToggle(this, drawer_layout, toolbar,
                 R.string.open_drawer, R.string.close_drawer) {
 
