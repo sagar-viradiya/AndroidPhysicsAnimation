@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion '27.0.1'
     defaultConfig {
         applicationId "com.example.sagar.physicsanimation"
         minSdkVersion 16

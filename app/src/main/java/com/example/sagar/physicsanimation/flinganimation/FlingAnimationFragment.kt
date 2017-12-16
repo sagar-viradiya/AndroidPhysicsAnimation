@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment
 import android.view.*
 
 import com.example.sagar.physicsanimation.R
+import com.example.sagar.physicsanimation.afterMeasured
 import kotlinx.android.synthetic.main.fragment_fling_animation.*
 import kotlin.properties.Delegates
 
@@ -34,12 +35,10 @@ class FlingAnimationFragment : Fragment() {
 
     val flingAnimationX: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
         FlingAnimation(android_bot, DynamicAnimation.X)
-                .setMinValue(0f)
     }
 
     val flingAnimationY: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
         FlingAnimation(android_bot, DynamicAnimation.Y)
-                .setMinValue(0f)
     }
 
     var friction: Float by Delegates.observable(1f) {
@@ -48,7 +47,7 @@ class FlingAnimationFragment : Fragment() {
         flingAnimationY.friction = new
     }
 
-    val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
+    private val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
 
         override fun onDown(e: MotionEvent?): Boolean {
             return true
@@ -83,13 +82,14 @@ class FlingAnimationFragment : Fragment() {
             if(flingAnimationX.isRunning) flingAnimationX.cancel()
         }
 
-        android_bot.viewTreeObserver.addOnGlobalLayoutListener(object : ViewTreeObserver.OnGlobalLayoutListener {
-            override fun onGlobalLayout() {
-                flingAnimationX.setMaxValue((screenSize.x - android_bot.width).toFloat())
-                flingAnimationY.setMaxValue((screenSize.y - android_bot.height).toFloat())
-                android_bot.viewTreeObserver.removeOnGlobalLayoutListener(this)
-            }
-        })
+        android_bot.afterMeasured {
+            flingAnimationX.setMinValue(0f)
+                    .setMaxValue((screenSize.x - width).toFloat())
+                    .setFriction(2.2f)
+            flingAnimationY.setMinValue(0f)
+                    .setMaxValue((screenSize.y - height).toFloat())
+                    .setFriction(2.2f)
+        }
 
 
         val gestureDetector = GestureDetector(context, gestureListener)
