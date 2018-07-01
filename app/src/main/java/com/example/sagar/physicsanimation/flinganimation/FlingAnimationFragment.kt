@@ -29,7 +29,7 @@ class FlingAnimationFragment : Fragment() {
 
     val screenSize by lazy(LazyThreadSafetyMode.NONE) {
         val size = Point()
-        activity.windowManager.defaultDisplay.getSize(size)
+        requireActivity().windowManager.defaultDisplay.getSize(size)
         size
     }
 
@@ -65,14 +65,14 @@ class FlingAnimationFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_fling_animation, container, false)
+        return inflater.inflate(R.layout.fragment_fling_animation, container, false)
     }
 
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
 
         flingAnimationX.addEndListener { animation, canceled, value, velocity ->
             if(flingAnimationY.isRunning) flingAnimationY.cancel()

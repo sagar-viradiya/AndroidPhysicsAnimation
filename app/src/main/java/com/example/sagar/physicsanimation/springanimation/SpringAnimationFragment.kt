@@ -47,14 +47,13 @@ class SpringAnimationFragment : Fragment() {
     var yDiffInTouchPointAndViewTopLeftCorner: Float = -1f
 
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater!!.inflate(R.layout.fragment_spring_animation, container, false)
+        return inflater.inflate(R.layout.fragment_spring_animation, container, false)
     }
 
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setupTouchListener()
     }
 

@@ -4,11 +4,8 @@
     <string name="drawer_header_title">F = M * A</string>
     <string name="drawer_menu_item_fling">Fling Animation</string>
     <string name="drawer_menu_item_spring">Spring Animation</string>
+    <string name="drawer_menu_item_chain">Chain Animation</string>
     <string name="open_drawer">Open</string>
     <string name="close_drawer">Close</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="drawer_menu_item_chain">Chain Animation</string>
 
 </resources>

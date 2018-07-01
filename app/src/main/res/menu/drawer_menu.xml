@@ -3,14 +3,14 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_item_fling"
+            android:id="@+id/flingAnimationFragment"
             android:title="@string/drawer_menu_item_fling"
             android:checked="true"/>
         <item
-            android:id="@+id/nav_item_spring"
+            android:id="@+id/springAnimationFragment"
             android:title="@string/drawer_menu_item_spring" />
         <item
-            android:id="@+id/nav_item_chain"
+            android:id="@+id/chainAnimationFragment"
             android:title="@string/drawer_menu_item_chain" />
     </group>
 
