@@ -16,16 +16,8 @@ import kotlin.properties.Delegates
 
 /**
  * A simple [Fragment] subclass.
- * Use the [FlingAnimationFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class FlingAnimationFragment : Fragment() {
-
-    companion object {
-        @JvmStatic
-        fun newInstance() = FlingAnimationFragment()
-
-    }
 
     val screenSize by lazy(LazyThreadSafetyMode.NONE) {
         val size = Point()

@@ -17,16 +17,8 @@ import kotlinx.android.synthetic.main.fragment_spring_animation.*
 
 /**
  * A simple [Fragment] subclass.
- * Use the [SpringAnimationFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class SpringAnimationFragment : Fragment() {
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = SpringAnimationFragment()
-    }
 
     private val springForce: SpringForce by lazy(LazyThreadSafetyMode.NONE) {
         SpringForce(0f).apply {

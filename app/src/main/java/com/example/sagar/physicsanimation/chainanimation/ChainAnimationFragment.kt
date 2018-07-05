@@ -18,17 +18,8 @@ import kotlinx.android.synthetic.main.fragment_chain_animation.*
 
 /**
  * A simple [Fragment] subclass.
- * Use the [ChainAnimationFragment.newInstance] factory method to
- * create an instance of this fragment.
  */
 class ChainAnimationFragment : Fragment() {
-
-    companion object {
-
-        @JvmStatic
-        fun newInstance() = ChainAnimationFragment()
-
-    }
 
     val firstSpringAnimationX by lazy(LazyThreadSafetyMode.NONE) {
         createSpringAnimation(android_bot1, DynamicAnimation.TRANSLATION_X)
