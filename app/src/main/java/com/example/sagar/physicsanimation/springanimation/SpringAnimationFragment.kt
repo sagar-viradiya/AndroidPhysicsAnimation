@@ -12,6 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.sagar.physicsanimation.R
+import com.example.sagar.physicsanimation.springAnimationOf
 import kotlinx.android.synthetic.main.fragment_spring_animation.*
 
 
@@ -28,11 +29,11 @@ class SpringAnimationFragment : Fragment() {
     }
 
     private val springAnimationTranslationX: SpringAnimation by lazy(LazyThreadSafetyMode.NONE) {
-        SpringAnimation(android_bot, DynamicAnimation.TRANSLATION_X).setSpring(springForce)
+        android_bot.springAnimationOf(DynamicAnimation.TRANSLATION_X).setSpring(springForce)
     }
 
     private val springAnimationTranslationY: SpringAnimation by lazy(LazyThreadSafetyMode.NONE) {
-        SpringAnimation(android_bot, DynamicAnimation.TRANSLATION_Y).setSpring(springForce)
+        android_bot.springAnimationOf(DynamicAnimation.TRANSLATION_Y).setSpring(springForce)
     }
 
     var xDiffInTouchPointAndViewTopLeftCorner: Float = -1f

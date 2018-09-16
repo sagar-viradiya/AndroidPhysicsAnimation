@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.support.animation.DynamicAnimation
 import android.support.animation.FloatPropertyCompat
 import android.support.animation.SpringAnimation
-import android.support.animation.SpringForce
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -13,6 +12,8 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.sagar.physicsanimation.R
+import com.example.sagar.physicsanimation.springAnimationOf
+import com.example.sagar.physicsanimation.withSpringForceProperties
 import kotlinx.android.synthetic.main.fragment_chain_animation.*
 
 
@@ -85,7 +86,7 @@ class ChainAnimationFragment : Fragment() {
     }
 
     private fun <K> createSpringAnimation(view: K, property: FloatPropertyCompat<K>) : SpringAnimation {
-        return SpringAnimation(view, property).setSpring(SpringForce())
+        return view.springAnimationOf(property).withSpringForceProperties()
     }
 
 

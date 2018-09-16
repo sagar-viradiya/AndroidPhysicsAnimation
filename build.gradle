@@ -12,12 +12,12 @@ buildscript {
         // App dependencies
         constraintLayoutVersion = '1.1.2'
         espressoVersion = '3.0.2'
-        gradleVersion = '3.2.0-beta02'
+        gradleVersion = '3.2.0-rc02'
         junitVersion = '4.12'
         navigationVersion = '1.0.0-alpha02'
-        kotlinVersion = '1.2.50'
+        kotlinVersion = '1.2.60'
         runnerVersion = '1.0.2'
-        supportLibraryVersion = '28.0.0-alpha3'
+        supportLibraryVersion = '28.0.0-rc02'
     }
 
     repositories {
