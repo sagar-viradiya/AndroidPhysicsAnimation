@@ -2,6 +2,7 @@
 
 package com.example.sagar.physicsanimation
 
+import android.support.animation.FlingAnimation
 import android.support.animation.FloatPropertyCompat
 import android.support.animation.SpringAnimation
 import android.support.animation.SpringForce
@@ -21,53 +22,40 @@ inline fun <T: View> T.afterMeasured(crossinline func: T.() -> Unit) {
     })
 }
 
-fun <K> K.springAnimationOf(property: FloatPropertyCompat<K>): SpringAnimation {
+fun <K: View> K.flingAnimationOf(property: FloatPropertyCompat<K>): FlingAnimation {
+    return FlingAnimation(this, property)
+}
+
+fun <K: View> K.springAnimationOf(property: FloatPropertyCompat<K>): SpringAnimation {
     return SpringAnimation(this, property)
 }
 
-fun <K> K.springAnimationWithSpringForceOf(property: FloatPropertyCompat<K>, finalPosition: Float): SpringAnimation {
+fun <K: View> K.springAnimationOf(property: FloatPropertyCompat<K>, finalPosition: Float): SpringAnimation {
     return SpringAnimation(this, property, finalPosition)
 }
 
-fun SpringAnimation.withSpringForceProperties(finalPosition: Float, stiffness: Float = SpringForce.STIFFNESS_MEDIUM,
-                                    dampingRatio: Float = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY): SpringAnimation {
-    return if (spring == null) {
-        setSpring(SpringForce(finalPosition).apply {
-            this.stiffness = stiffness
-            this.dampingRatio= dampingRatio
-        })
-    } else {
-        spring.finalPosition = finalPosition
-        spring.stiffness = stiffness
-        spring.dampingRatio = dampingRatio
-        this
-    }
-
+inline fun <K: View> K.springAnimationOf(property: FloatPropertyCompat<K>,
+                                         func: SpringForce.() -> Unit): SpringAnimation {
+    val springAnimation = SpringAnimation(this, property)
+    val springForce = SpringForce()
+    springForce.func()
+    springAnimation.spring = springForce
+    return springAnimation
 }
 
-fun SpringAnimation.withSpringForceProperties(stiffness: Float = SpringForce.STIFFNESS_MEDIUM,
-                                              dampingRatio: Float = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY): SpringAnimation {
-    return if (spring == null) {
-        setSpring(SpringForce().apply {
-            this.stiffness = stiffness
-            this.dampingRatio= dampingRatio
-        })
-    } else {
-        spring.stiffness = stiffness
-        spring.dampingRatio = dampingRatio
-        this
-    }
+inline fun <K: View> K.springAnimationOf(property: FloatPropertyCompat<K>, finalPosition: Float,
+                                         func: SpringForce.() -> Unit): SpringAnimation {
 
+    val springAnimation = SpringAnimation(this, property, finalPosition)
+    springAnimation.spring.func()
+    return springAnimation
 }
 
-fun SpringAnimation.updateSpringForceProperties(stiffness: Float = SpringForce.STIFFNESS_MEDIUM,
-                                    dampingRatio: Float = SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY): SpringAnimation {
+inline fun SpringAnimation.withSpringForceProperties(func: SpringForce.() -> Unit): SpringAnimation {
     if (spring == null) {
-        throw UnsupportedOperationException("Incomplete SpringAnimation: Spring force needs to be set.")
+        spring = SpringForce()
     }
-
-    spring.stiffness = stiffness
-    spring.dampingRatio = dampingRatio
+    spring.func()
     return this
 }
 

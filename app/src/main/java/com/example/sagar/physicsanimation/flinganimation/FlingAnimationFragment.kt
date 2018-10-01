@@ -10,6 +10,7 @@ import android.view.*
 
 import com.example.sagar.physicsanimation.R
 import com.example.sagar.physicsanimation.afterMeasured
+import com.example.sagar.physicsanimation.flingAnimationOf
 import kotlinx.android.synthetic.main.fragment_fling_animation.*
 import kotlin.properties.Delegates
 
@@ -19,18 +20,18 @@ import kotlin.properties.Delegates
  */
 class FlingAnimationFragment : Fragment() {
 
-    val screenSize by lazy(LazyThreadSafetyMode.NONE) {
+    private val screenSize by lazy(LazyThreadSafetyMode.NONE) {
         val size = Point()
         requireActivity().windowManager.defaultDisplay.getSize(size)
         size
     }
 
     val flingAnimationX: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
-        FlingAnimation(android_bot, DynamicAnimation.X)
+        android_bot.flingAnimationOf(DynamicAnimation.X)
     }
 
     val flingAnimationY: FlingAnimation by lazy(LazyThreadSafetyMode.NONE) {
-        FlingAnimation(android_bot, DynamicAnimation.Y)
+        android_bot.flingAnimationOf(DynamicAnimation.Y)
     }
 
     var friction: Float by Delegates.observable(1f) {

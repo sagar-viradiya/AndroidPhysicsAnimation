@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.support.animation.DynamicAnimation
 import android.support.animation.FloatPropertyCompat
 import android.support.animation.SpringAnimation
+import android.support.animation.SpringForce.DAMPING_RATIO_MEDIUM_BOUNCY
+import android.support.animation.SpringForce.STIFFNESS_MEDIUM
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.MotionEvent
@@ -13,7 +15,6 @@ import android.view.ViewGroup
 
 import com.example.sagar.physicsanimation.R
 import com.example.sagar.physicsanimation.springAnimationOf
-import com.example.sagar.physicsanimation.withSpringForceProperties
 import kotlinx.android.synthetic.main.fragment_chain_animation.*
 
 
@@ -22,19 +23,19 @@ import kotlinx.android.synthetic.main.fragment_chain_animation.*
  */
 class ChainAnimationFragment : Fragment() {
 
-    val firstSpringAnimationX by lazy(LazyThreadSafetyMode.NONE) {
+    private val firstSpringAnimationX by lazy(LazyThreadSafetyMode.NONE) {
         createSpringAnimation(android_bot1, DynamicAnimation.TRANSLATION_X)
     }
 
-    val firstSpringAnimationY by lazy(LazyThreadSafetyMode.NONE) {
+    private val firstSpringAnimationY by lazy(LazyThreadSafetyMode.NONE) {
         createSpringAnimation(android_bot1, DynamicAnimation.TRANSLATION_Y)
     }
 
-    val secondSpringAnimationX by lazy(LazyThreadSafetyMode.NONE) {
+    private val secondSpringAnimationX by lazy(LazyThreadSafetyMode.NONE) {
         createSpringAnimation(android_bot2, DynamicAnimation.TRANSLATION_X)
     }
 
-    val secondSpringAnimationY by lazy(LazyThreadSafetyMode.NONE) {
+    private val secondSpringAnimationY by lazy(LazyThreadSafetyMode.NONE) {
         createSpringAnimation(android_bot2, DynamicAnimation.TRANSLATION_Y)
     }
 
@@ -85,9 +86,11 @@ class ChainAnimationFragment : Fragment() {
         }
     }
 
-    private fun <K> createSpringAnimation(view: K, property: FloatPropertyCompat<K>) : SpringAnimation {
-        return view.springAnimationOf(property).withSpringForceProperties()
+    private fun <K: View> createSpringAnimation(view: K, property: FloatPropertyCompat<K>) : SpringAnimation {
+        return view.springAnimationOf(property) {
+            stiffness = STIFFNESS_MEDIUM
+            dampingRatio = DAMPING_RATIO_MEDIUM_BOUNCY
+        }
     }
-
 
 }
