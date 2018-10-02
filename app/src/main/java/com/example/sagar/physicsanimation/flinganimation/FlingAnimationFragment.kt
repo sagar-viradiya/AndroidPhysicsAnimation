@@ -9,8 +9,8 @@ import android.support.v4.app.Fragment
 import android.view.*
 
 import com.example.sagar.physicsanimation.R
-import com.example.sagar.physicsanimation.afterMeasured
-import com.example.sagar.physicsanimation.flingAnimationOf
+import com.example.sagar.physicsanimation.utils.afterMeasured
+import com.example.sagar.physicsanimation.utils.flingAnimationOf
 import kotlinx.android.synthetic.main.fragment_fling_animation.*
 import kotlin.properties.Delegates
 

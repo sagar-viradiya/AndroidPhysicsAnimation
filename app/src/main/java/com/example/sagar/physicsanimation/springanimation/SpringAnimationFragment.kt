@@ -12,7 +12,7 @@ import android.view.View
 import android.view.ViewGroup
 
 import com.example.sagar.physicsanimation.R
-import com.example.sagar.physicsanimation.springAnimationOf
+import com.example.sagar.physicsanimation.utils.springAnimationOf
 import kotlinx.android.synthetic.main.fragment_spring_animation.*
 
 
