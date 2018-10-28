@@ -15,6 +15,7 @@ import android.view.ViewGroup
 
 import com.example.sagar.physicsanimation.R
 import com.example.sagar.physicsanimation.utils.springAnimationOf
+import com.example.sagar.physicsanimation.utils.withSpringForceProperties
 import kotlinx.android.synthetic.main.fragment_chain_animation.*
 
 
@@ -87,7 +88,7 @@ class ChainAnimationFragment : Fragment() {
     }
 
     private fun <K: View> createSpringAnimation(view: K, property: FloatPropertyCompat<K>) : SpringAnimation {
-        return view.springAnimationOf(property) {
+        return view.springAnimationOf(property).withSpringForceProperties {
             stiffness = STIFFNESS_MEDIUM
             dampingRatio = DAMPING_RATIO_MEDIUM_BOUNCY
         }
