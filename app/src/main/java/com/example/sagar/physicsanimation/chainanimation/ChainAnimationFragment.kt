@@ -87,7 +87,7 @@ class ChainAnimationFragment : Fragment() {
         }
     }
 
-    private fun <K: View> createSpringAnimation(view: K, property: FloatPropertyCompat<K>) : SpringAnimation {
+    private fun <K : View> createSpringAnimation(view: K, property: FloatPropertyCompat<K>): SpringAnimation {
         return view.springAnimationOf(property).withSpringForceProperties {
             stiffness = STIFFNESS_MEDIUM
             dampingRatio = DAMPING_RATIO_MEDIUM_BOUNCY
