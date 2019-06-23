@@ -1,4 +1,4 @@
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sagar-viradiya/AndroidPhysicsAnimation/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sagar-viradiya/AndroidPhysicsAnimation/blob/master/LICENSE) [![Kotlin Weekly](https://img.shields.io/badge/Kotlin%20Weekly-%2363-blue.svg)](https://mailchi.mp/kotlinweekly/kotlin-weekly-63?e=c1747840c3)
 
 # Android physics based animation
 Sample app demonstrating android physics based animation. Covers Spring animation, Fling animation and Chain spring animation.
