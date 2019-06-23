@@ -1,5 +1,8 @@
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sagar-viradiya/AndroidPhysicsAnimation/blob/master/LICENSE)
+
 # Android physics based animation
 Sample app demonstrating android physics based animation. Covers Spring animation, Fling animation and Chain spring animation.
+For more information head over to my [medium article.](https://android.jlelse.eu/android-physics-based-animation-cf0cc125830f)
 
 ## Spring Animation
 ![alt text](https://media.giphy.com/media/xT39Dn9zedyTuFjuzm/giphy.gif "Spring animation")
