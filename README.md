@@ -1,20 +1,26 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/sagar-viradiya/AndroidPhysicsAnimation/blob/master/LICENSE) [![Kotlin Weekly](https://img.shields.io/badge/Kotlin%20Weekly-%2363-blue.svg)](https://mailchi.mp/kotlinweekly/kotlin-weekly-63?e=c1747840c3)
 
-# Android physics based animation
+# Android physics based animation :sparkles:
 Sample app demonstrating android physics based animation. Covers Spring animation, Fling animation and Chain spring animation.
 For more information head over to my [medium article.](https://android.jlelse.eu/android-physics-based-animation-cf0cc125830f)
 
 ## Spring Animation
-![alt text](https://media.giphy.com/media/xT39Dn9zedyTuFjuzm/giphy.gif "Spring animation")
-
+<kbd>
+<img src="https://media.giphy.com/media/xT39Dn9zedyTuFjuzm/giphy.gif" data-canonical-src="https://media.giphy.com/media/xT39Dn9zedyTuFjuzm/giphy.gif "Spring animation""/> 
+</kbd>
 
 ## Fling Animation
-![alt text](https://media.giphy.com/media/l41JWvM5IDJQND7jO/giphy.gif "Fling animation")
+<kbd>
+<img src="https://media.giphy.com/media/l41JWvM5IDJQND7jO/giphy.gif" data-canonical-src="https://media.giphy.com/media/l41JWvM5IDJQND7jO/giphy.gif"/> 
+</kbd>
 
 
 ## Chain spring animation
-![alt text](https://media.giphy.com/media/l41JMyczEqmDjEHAc/giphy.gif "Chain animation")
+<kbd>
+<img src="https://media.giphy.com/media/l41JMyczEqmDjEHAc/giphy.gif" data-canonical-src="https://media.giphy.com/media/l41JMyczEqmDjEHAc/giphy.gif"/> 
+</kbd>
 
+<hr>
 
 ## LICENSE
 
